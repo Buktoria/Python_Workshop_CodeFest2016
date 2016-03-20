@@ -7,9 +7,7 @@ import select
 ##### YOUR CODE GOES HERE #####
 class ChatProfile(object):
     def __init__(self):
-        self.name = 'Vicky'
-        self.nickname = 'Buktroia'
-        self.area_of_study = 'CS'
+    
 chat_profile = ChatProfile()
 ###############################
 
