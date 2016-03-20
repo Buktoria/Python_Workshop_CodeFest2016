@@ -7,7 +7,7 @@ import select
 ##### YOUR CODE GOES HERE #####
 class ChatProfile(object):
     def __init__(self):
-    
+
 chat_profile = ChatProfile()
 ###############################
 
@@ -30,9 +30,9 @@ def chat_client():
         sys.exit()
 
     print('Connected to remote host. You can start sending messages')
-    sys.stdout.write('[{}] '.format(chat_profile.name)); sys.stdout.flush()
-    s.send('{} who is studying {} has entered the chat room.\n'.format(
-        chat_profile.nickname, chat_profile.area_of_study
+    sys.stdout.write('[{}] '.format(chat_profile.nickname)); sys.stdout.flush()
+    s.send('{} who is studying {} has entered the chat room. But you can call them {}.\n'.format(
+        chat_profile.name, chat_profile.area_of_study, chat_profile.nickname,
     ).encode())
 
     while 1:
@@ -51,13 +51,13 @@ def chat_client():
                 else :
                     #print data
                     sys.stdout.write(data.decode("utf-8", "strict") )
-                    sys.stdout.write('[{}] '.format(chat_profile.name)); sys.stdout.flush()
+                    sys.stdout.write('[{}] '.format(chat_profile.nickname)); sys.stdout.flush()
 
             else :
                 # user entered a message
                 msg = '[{}] {}'.format(chat_profile.nickname, sys.stdin.readline())
                 s.send(msg.encode())
-                sys.stdout.write('[{}] '.format(chat_profile.name)); sys.stdout.flush()
+                sys.stdout.write('[{}] '.format(chat_profile.nickname)); sys.stdout.flush()
 
 if __name__ == "__main__":
 
